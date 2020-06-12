@@ -15,6 +15,12 @@ namespace InventoryApp
         public NewInventory()
         {
             InitializeComponent();
+           
+        }
+
+        private void NewInventory_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

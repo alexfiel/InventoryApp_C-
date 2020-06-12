@@ -38,6 +38,21 @@ namespace InventoryApp.Class
         public string email { set; get; }
         public string role { set; get; }
 
+        //properties for newInventory
+        public string invobjid { set; get; }
+        public string name { set; get; }
+        public string description { set; get; }
+        public string serial { set; get; }
+        public string category { set; get; }
+        public string office { set; get; }
+        public string assign_to { set; get; }
+        public string property_no { set; get; }
+        public string expensecode { set; get; }
+        public bool working { set; get; }
+        public DateTime DateReceived { set; get; }
+        public string location { set; get; }
+        public string group_id { set; get; }
+
         //read properties
         public DataTable dt = new DataTable();
         private DataSet ds = new DataSet();

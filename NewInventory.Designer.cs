@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -47,19 +49,19 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnNew = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnNew = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.comboBox3);
@@ -83,6 +85,31 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(206)))), ((int)(((byte)(137)))));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(308, 674);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(85, 33);
+            this.button1.TabIndex = 21;
+            this.button1.Text = "BROWSE";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Location = new System.Drawing.Point(91, 674);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(194, 125);
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -95,7 +122,7 @@
             // 
             // comboBox3
             // 
-            this.comboBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(72)))), ((int)(((byte)(1)))));
+            this.comboBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(237)))), ((int)(((byte)(207)))));
             this.comboBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox3.ForeColor = System.Drawing.Color.White;
             this.comboBox3.FormattingEnabled = true;
@@ -133,7 +160,7 @@
             // 
             // comboBox2
             // 
-            this.comboBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(72)))), ((int)(((byte)(1)))));
+            this.comboBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(237)))), ((int)(((byte)(207)))));
             this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox2.ForeColor = System.Drawing.Color.White;
             this.comboBox2.FormattingEnabled = true;
@@ -219,7 +246,7 @@
             // 
             // comboBox1
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(72)))), ((int)(((byte)(1)))));
+            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(237)))), ((int)(((byte)(207)))));
             this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox1.ForeColor = System.Drawing.Color.White;
             this.comboBox1.FormattingEnabled = true;
@@ -231,14 +258,14 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(454, 70);
+            this.dataGridView1.Location = new System.Drawing.Point(463, 65);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(581, 642);
+            this.dataGridView1.Size = new System.Drawing.Size(505, 642);
             this.dataGridView1.TabIndex = 1;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(657, 31);
+            this.textBox4.Location = new System.Drawing.Point(532, 33);
             this.textBox4.MaxLength = 250;
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(338, 26);
@@ -249,25 +276,11 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(583, 31);
+            this.label8.Location = new System.Drawing.Point(458, 33);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(68, 25);
             this.label8.TabIndex = 14;
             this.label8.Text = "Search";
-            // 
-            // btnNew
-            // 
-            this.btnNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(206)))), ((int)(((byte)(137)))));
-            this.btnNew.BackgroundImage = global::InventoryApp.Properties.Resources.new_by_copy;
-            this.btnNew.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnNew.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnNew.FlatAppearance.BorderSize = 2;
-            this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNew.Location = new System.Drawing.Point(485, 718);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(133, 94);
-            this.btnNew.TabIndex = 16;
-            this.btnNew.UseVisualStyleBackColor = false;
             // 
             // btnSearch
             // 
@@ -277,7 +290,7 @@
             this.btnSearch.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnSearch.FlatAppearance.BorderSize = 0;
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Location = new System.Drawing.Point(995, 32);
+            this.btnSearch.Location = new System.Drawing.Point(876, 33);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(34, 24);
             this.btnSearch.TabIndex = 20;
@@ -292,9 +305,9 @@
             this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnDelete.FlatAppearance.BorderSize = 2;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Location = new System.Drawing.Point(902, 718);
+            this.btnDelete.Location = new System.Drawing.Point(747, 718);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(133, 94);
+            this.btnDelete.Size = new System.Drawing.Size(90, 86);
             this.btnDelete.TabIndex = 19;
             this.btnDelete.UseVisualStyleBackColor = false;
             // 
@@ -306,9 +319,9 @@
             this.btnUpdate.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnUpdate.FlatAppearance.BorderSize = 2;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.Location = new System.Drawing.Point(763, 718);
+            this.btnUpdate.Location = new System.Drawing.Point(651, 718);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(133, 94);
+            this.btnUpdate.Size = new System.Drawing.Size(90, 86);
             this.btnUpdate.TabIndex = 18;
             this.btnUpdate.UseVisualStyleBackColor = false;
             // 
@@ -317,33 +330,39 @@
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(206)))), ((int)(((byte)(137)))));
             this.btnSave.BackgroundImage = global::InventoryApp.Properties.Resources.save;
             this.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnSave.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnSave.FlatAppearance.BorderSize = 2;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSave.Location = new System.Drawing.Point(624, 718);
+            this.btnSave.Location = new System.Drawing.Point(555, 718);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(133, 94);
+            this.btnSave.Size = new System.Drawing.Size(90, 86);
             this.btnSave.TabIndex = 17;
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnSave.UseVisualStyleBackColor = false;
             // 
-            // pictureBox1
+            // btnNew
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(91, 675);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(194, 125);
-            this.pictureBox1.TabIndex = 15;
-            this.pictureBox1.TabStop = false;
+            this.btnNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(206)))), ((int)(((byte)(137)))));
+            this.btnNew.BackgroundImage = global::InventoryApp.Properties.Resources.new_by_copy;
+            this.btnNew.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnNew.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnNew.FlatAppearance.BorderSize = 2;
+            this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNew.Location = new System.Drawing.Point(459, 718);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(90, 86);
+            this.btnNew.TabIndex = 16;
+            this.btnNew.UseVisualStyleBackColor = false;
             // 
             // NewInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(72)))), ((int)(((byte)(1)))));
-            this.ClientSize = new System.Drawing.Size(1047, 835);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(115)))), ((int)(((byte)(10)))));
+            this.ClientSize = new System.Drawing.Size(998, 835);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
@@ -360,10 +379,13 @@
             this.Opacity = 0.5D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NewInventory";
+            this.TopMost = true;
+            this.TransparencyKey = System.Drawing.Color.Lime;
+            this.Load += new System.EventHandler(this.NewInventory_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -396,5 +418,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button button1;
     }
 }

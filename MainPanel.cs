@@ -21,5 +21,12 @@ namespace InventoryApp
         {
             Application.Exit();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            NewInventory frmNewInv = new NewInventory() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true, AutoScroll=true, AutoSize=true   };
+            this.ContentPanel.Controls.Add(frmNewInv);
+            frmNewInv.Show();
+        }
     }
 }
