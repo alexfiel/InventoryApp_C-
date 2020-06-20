@@ -7,6 +7,7 @@ using MySql.Data.MySqlClient;
 using System.Data;
 using InventoryApp.Class;
 using System.Windows.Forms;
+using System.Security.Cryptography;
 
 namespace InventoryApp.Class
 {
@@ -40,7 +41,7 @@ namespace InventoryApp.Class
 
         //properties for newInventory
         public string invobjid { set; get; }
-        public string name { set; get; }
+        public string prodname { set; get; }
         public string description { set; get; }
         public string serial { set; get; }
         public string category { set; get; }
@@ -52,13 +53,101 @@ namespace InventoryApp.Class
         public DateTime DateReceived { set; get; }
         public string location { set; get; }
         public string group_id { set; get; }
+        public string supplier { set; get; }
 
         //read properties
         public DataTable dt = new DataTable();
         private DataSet ds = new DataSet();
 
+        #region CRUD function Inventory
 
-       
+        //create function for the newInventory
+        public void CreateInventory()
+        {
+            connectdb.Open();
+            using (MySqlCommand cmd = new MySqlCommand())
+            {
+                try
+                {
+
+                    cmd.CommandText = "INSERT INTO `tagb_inventory`.`property` (`objid`, `name`, `description`, `serial`, `category`, `supplier`, `expensecode`, `date_received`) VALUES (@invobjid, @name, '@description, @serial, @category, @supplier, @expensecode, @DateReceived)";
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Connection = connectdb;
+                                        
+                    cmd.Parameters.Add("@invobjid", MySqlDbType.VarChar).Value = invobjid;
+                    cmd.Parameters.Add("@name", MySqlDbType.VarChar).Value = prodname;
+                    cmd.Parameters.Add("@description", MySqlDbType.VarChar).Value = description;
+                    cmd.Parameters.Add("@serial", MySqlDbType.VarChar).Value = serial;
+                    cmd.Parameters.Add("@category", MySqlDbType.VarChar).Value = category;
+                    cmd.Parameters.Add("@supplier", MySqlDbType.VarChar).Value = supplier;
+                    cmd.Parameters.Add("@expensecode", MySqlDbType.VarChar).Value = expensecode;
+                    cmd.Parameters.Add("@DateReceived", MySqlDbType.DateTime).Value = DateReceived;
+
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
+                connectdb.Close();
+            }
+        }
+
+        //update function newInventory
+        public void UpdateInventory()
+        {
+            connectdb.Open();
+            using(MySqlCommand cmd = new MySqlCommand())
+            {
+                try
+                {
+                    cmd.CommandText = "Update `tagb_inventory`.`property` set name=@name, description=@description, serial=@serial, category=@category, supplier=@supplier, expensecode=@expensecode, DateReceived=@DateReceived where invobjid=@invobjid";
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Connection = connectdb;
+
+                    cmd.Parameters.Add("@invobjid", MySqlDbType.VarChar).Value = invobjid;
+                    cmd.Parameters.Add("@name", MySqlDbType.VarChar).Value = prodname;
+                    cmd.Parameters.Add("@description", MySqlDbType.VarChar).Value = description;
+                    cmd.Parameters.Add("@serial", MySqlDbType.VarChar).Value = serial;
+                    cmd.Parameters.Add("@category", MySqlDbType.VarChar).Value = category;
+                    cmd.Parameters.Add("@supplier", MySqlDbType.VarChar).Value = supplier;
+                    cmd.Parameters.Add("@expensecode", MySqlDbType.VarChar).Value = expensecode;
+                    cmd.Parameters.Add("@DateReceived", MySqlDbType.DateTime).Value = DateReceived;
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
+                connectdb.Close();
+            }
+        }
+        //delete function newInventory
+        public void DeleteInventory()
+        {
+            connectdb.Open();
+            using(MySqlCommand cmd = new MySqlCommand())
+            {
+                try
+                {
+                    cmd.CommandText = "DELETE from `tagb_inventory`.`property` where invobjid=@invobjid";
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Connection = connectdb;
+
+                    cmd.Parameters.Add("@invobjid", MySqlDbType.VarChar).Value = invobjid;
+
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
+
+                connectdb.Close();
+            }
+        }
+        #endregion
+
+        #region CRUD function User
         // createt function
         public void Create_data()
         {
@@ -144,12 +233,22 @@ namespace InventoryApp.Class
                 
             }
         }
+        #endregion
 
         //Read Function
         public void Read_data()
         {
             dt.Clear();
             string query = "SELECT * FROM `user`";
+            MySqlDataAdapter MDA = new MySqlDataAdapter(query, connectdb);
+            MDA.Fill(ds);
+            dt = ds.Tables[0];
+        }
+
+        public void ReadDataInventory()
+        {
+            dt.Clear();
+            string query = "Select objid,name,description,serial,category,supplier,expensecode,date_received from  `tagb_inventory`.`property`";
             MySqlDataAdapter MDA = new MySqlDataAdapter(query, connectdb);
             MDA.Fill(ds);
             dt = ds.Tables[0];

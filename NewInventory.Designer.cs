@@ -30,22 +30,22 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbProdImage = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cboSupplier = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.dtDateReceived = new System.Windows.Forms.DateTimePicker();
+            this.cboExpenseCode = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtSerial = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtDescription = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtxName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboCategory = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -55,29 +55,29 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProdImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.Controls.Add(this.pbProdImage);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.comboBox3);
+            this.groupBox1.Controls.Add(this.cboSupplier);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Controls.Add(this.comboBox2);
+            this.groupBox1.Controls.Add(this.dtDateReceived);
+            this.groupBox1.Controls.Add(this.cboExpenseCode);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.txtSerial);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.txtDescription);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtxName);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.cboCategory);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
@@ -101,14 +101,14 @@
             this.button1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // pictureBox1
+            // pbProdImage
             // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(91, 674);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(194, 125);
-            this.pictureBox1.TabIndex = 15;
-            this.pictureBox1.TabStop = false;
+            this.pbProdImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbProdImage.Location = new System.Drawing.Point(91, 674);
+            this.pbProdImage.Name = "pbProdImage";
+            this.pbProdImage.Size = new System.Drawing.Size(194, 125);
+            this.pbProdImage.TabIndex = 15;
+            this.pbProdImage.TabStop = false;
             // 
             // label9
             // 
@@ -120,16 +120,16 @@
             this.label9.TabIndex = 14;
             this.label9.Text = "Image:";
             // 
-            // comboBox3
+            // cboSupplier
             // 
-            this.comboBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(237)))), ((int)(((byte)(207)))));
-            this.comboBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox3.ForeColor = System.Drawing.Color.White;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(20, 566);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(378, 28);
-            this.comboBox3.TabIndex = 13;
+            this.cboSupplier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(237)))), ((int)(((byte)(207)))));
+            this.cboSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboSupplier.ForeColor = System.Drawing.Color.Black;
+            this.cboSupplier.FormattingEnabled = true;
+            this.cboSupplier.Location = new System.Drawing.Point(20, 566);
+            this.cboSupplier.Name = "cboSupplier";
+            this.cboSupplier.Size = new System.Drawing.Size(378, 28);
+            this.cboSupplier.TabIndex = 13;
             // 
             // label7
             // 
@@ -151,23 +151,23 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Date Received";
             // 
-            // dateTimePicker1
+            // dtDateReceived
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(20, 637);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(373, 26);
-            this.dateTimePicker1.TabIndex = 10;
+            this.dtDateReceived.Location = new System.Drawing.Point(20, 637);
+            this.dtDateReceived.Name = "dtDateReceived";
+            this.dtDateReceived.Size = new System.Drawing.Size(373, 26);
+            this.dtDateReceived.TabIndex = 10;
             // 
-            // comboBox2
+            // cboExpenseCode
             // 
-            this.comboBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(237)))), ((int)(((byte)(207)))));
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox2.ForeColor = System.Drawing.Color.White;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(20, 496);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(378, 28);
-            this.comboBox2.TabIndex = 9;
+            this.cboExpenseCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(237)))), ((int)(((byte)(207)))));
+            this.cboExpenseCode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboExpenseCode.ForeColor = System.Drawing.Color.Black;
+            this.cboExpenseCode.FormattingEnabled = true;
+            this.cboExpenseCode.Location = new System.Drawing.Point(20, 496);
+            this.cboExpenseCode.Name = "cboExpenseCode";
+            this.cboExpenseCode.Size = new System.Drawing.Size(378, 28);
+            this.cboExpenseCode.TabIndex = 9;
             // 
             // label5
             // 
@@ -179,13 +179,13 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Expense Code";
             // 
-            // textBox3
+            // txtSerial
             // 
-            this.textBox3.Location = new System.Drawing.Point(20, 423);
-            this.textBox3.MaxLength = 250;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(378, 26);
-            this.textBox3.TabIndex = 7;
+            this.txtSerial.Location = new System.Drawing.Point(20, 423);
+            this.txtSerial.MaxLength = 250;
+            this.txtSerial.Name = "txtSerial";
+            this.txtSerial.Size = new System.Drawing.Size(378, 26);
+            this.txtSerial.TabIndex = 7;
             // 
             // label4
             // 
@@ -197,15 +197,15 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Serial Number";
             // 
-            // textBox2
+            // txtDescription
             // 
-            this.textBox2.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(20, 188);
-            this.textBox2.MaxLength = 250;
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(378, 192);
-            this.textBox2.TabIndex = 5;
+            this.txtDescription.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescription.Location = new System.Drawing.Point(20, 188);
+            this.txtDescription.MaxLength = 250;
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(378, 192);
+            this.txtDescription.TabIndex = 5;
             // 
             // label3
             // 
@@ -217,12 +217,12 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Technical Description";
             // 
-            // textBox1
+            // txtxName
             // 
-            this.textBox1.Location = new System.Drawing.Point(20, 117);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(378, 26);
-            this.textBox1.TabIndex = 3;
+            this.txtxName.Location = new System.Drawing.Point(20, 117);
+            this.txtxName.Name = "txtxName";
+            this.txtxName.Size = new System.Drawing.Size(378, 26);
+            this.txtxName.TabIndex = 3;
             // 
             // label2
             // 
@@ -244,24 +244,25 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Category";
             // 
-            // comboBox1
+            // cboCategory
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(237)))), ((int)(((byte)(207)))));
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.ForeColor = System.Drawing.Color.White;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(20, 48);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(378, 28);
-            this.comboBox1.TabIndex = 0;
+            this.cboCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(237)))), ((int)(((byte)(207)))));
+            this.cboCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboCategory.ForeColor = System.Drawing.Color.Black;
+            this.cboCategory.FormattingEnabled = true;
+            this.cboCategory.Location = new System.Drawing.Point(20, 48);
+            this.cboCategory.Name = "cboCategory";
+            this.cboCategory.Size = new System.Drawing.Size(378, 28);
+            this.cboCategory.TabIndex = 0;
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(463, 65);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(505, 642);
+            this.dataGridView1.Size = new System.Drawing.Size(513, 642);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // textBox4
             // 
@@ -305,7 +306,7 @@
             this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnDelete.FlatAppearance.BorderSize = 2;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Location = new System.Drawing.Point(747, 718);
+            this.btnDelete.Location = new System.Drawing.Point(886, 713);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(90, 86);
             this.btnDelete.TabIndex = 19;
@@ -319,7 +320,7 @@
             this.btnUpdate.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnUpdate.FlatAppearance.BorderSize = 2;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.Location = new System.Drawing.Point(651, 718);
+            this.btnUpdate.Location = new System.Drawing.Point(790, 713);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(90, 86);
             this.btnUpdate.TabIndex = 18;
@@ -335,7 +336,7 @@
             this.btnSave.FlatAppearance.BorderSize = 2;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSave.Location = new System.Drawing.Point(555, 718);
+            this.btnSave.Location = new System.Drawing.Point(694, 713);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(90, 86);
             this.btnSave.TabIndex = 17;
@@ -351,11 +352,12 @@
             this.btnNew.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnNew.FlatAppearance.BorderSize = 2;
             this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNew.Location = new System.Drawing.Point(459, 718);
+            this.btnNew.Location = new System.Drawing.Point(598, 713);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(90, 86);
             this.btnNew.TabIndex = 16;
             this.btnNew.UseVisualStyleBackColor = false;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // NewInventory
             // 
@@ -384,7 +386,7 @@
             this.Load += new System.EventHandler(this.NewInventory_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProdImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -394,20 +396,20 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cboSupplier;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.DateTimePicker dtDateReceived;
+        private System.Windows.Forms.ComboBox cboExpenseCode;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtSerial;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtxName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboCategory;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label8;
@@ -415,7 +417,7 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbProdImage;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button button1;
