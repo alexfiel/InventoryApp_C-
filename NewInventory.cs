@@ -24,7 +24,13 @@ namespace InventoryApp
 
         private void NewInventory_Load(object sender, EventArgs e)
         {
-
+            ReadDataInventory();
+            crud.ShowCategory();
+            crud.ShowExpenseCode();
+            crud.ShowSupplier();
+            cboCategory.DataSource = crud.datafill;
+            cboExpenseCode.DataSource = crud.datafillExpense;
+            cboSupplier.DataSource = crud.datafillSUpplier;
         }
 
         public void CreateNewInventory()
@@ -117,6 +123,31 @@ namespace InventoryApp
             cboExpenseCode.Text = "";
             cboSupplier.Text = "";
             dtDateReceived.Value = DateTime.Today;
+
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            RandomCharacter();
+            CreateNewInventory();
+            ReadDataInventory();
+
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            UpdateInventory();
+            ReadDataInventory();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DeleteInventory();
+            ReadDataInventory();
+        }
+
+        private void cboCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

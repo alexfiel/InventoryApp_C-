@@ -40,9 +40,13 @@ namespace InventoryApp.Class
         public string role { set; get; }
 
         //properties for newInventory
+        public List<string> datafill = new List<string>();
+        public List<string> datafillExpense = new List<string>();
+        public List<string> datafillSUpplier = new List<string>();
         public string invobjid { set; get; }
         public string prodname { set; get; }
         public string description { set; get; }
+        public string propertyno { set; get; }
         public string serial { set; get; }
         public string category { set; get; }
         public string office { set; get; }
@@ -69,8 +73,8 @@ namespace InventoryApp.Class
             {
                 try
                 {
-
-                    cmd.CommandText = "INSERT INTO `tagb_inventory`.`property` (`objid`, `name`, `description`, `serial`, `category`, `supplier`, `expensecode`, `date_received`) VALUES (@invobjid, @name, '@description, @serial, @category, @supplier, @expensecode, @DateReceived)";
+                    propertyno = "Null";
+                    cmd.CommandText = "INSERT INTO `tagb_inventory`.`property` (`objid`, `name`, `description`, `serial`, `category`, `supplier`, `property_no`, `expensecode`, `date_received`) VALUES (@invobjid, @name, @description, @serial, @category, @supplier,@propertyno, @expensecode, @DateReceived)";
                     cmd.CommandType = CommandType.Text;
                     cmd.Connection = connectdb;
                                         
@@ -80,6 +84,7 @@ namespace InventoryApp.Class
                     cmd.Parameters.Add("@serial", MySqlDbType.VarChar).Value = serial;
                     cmd.Parameters.Add("@category", MySqlDbType.VarChar).Value = category;
                     cmd.Parameters.Add("@supplier", MySqlDbType.VarChar).Value = supplier;
+                    cmd.Parameters.Add("@propertyno", MySqlDbType.VarChar).Value = propertyno;
                     cmd.Parameters.Add("@expensecode", MySqlDbType.VarChar).Value = expensecode;
                     cmd.Parameters.Add("@DateReceived", MySqlDbType.DateTime).Value = DateReceived;
 
@@ -101,7 +106,7 @@ namespace InventoryApp.Class
             {
                 try
                 {
-                    cmd.CommandText = "Update `tagb_inventory`.`property` set name=@name, description=@description, serial=@serial, category=@category, supplier=@supplier, expensecode=@expensecode, DateReceived=@DateReceived where invobjid=@invobjid";
+                    cmd.CommandText = "Update `tagb_inventory`.`property` set name=@name, description=@description, serial=@serial, category=@category, supplier=@supplier, expensecode=@expensecode, date_received=@DateReceived where objid=@invobjid";
                     cmd.CommandType = CommandType.Text;
                     cmd.Connection = connectdb;
 
@@ -113,6 +118,8 @@ namespace InventoryApp.Class
                     cmd.Parameters.Add("@supplier", MySqlDbType.VarChar).Value = supplier;
                     cmd.Parameters.Add("@expensecode", MySqlDbType.VarChar).Value = expensecode;
                     cmd.Parameters.Add("@DateReceived", MySqlDbType.DateTime).Value = DateReceived;
+
+                    cmd.ExecuteNonQuery();
                 }
                 catch (Exception e)
                 {
@@ -129,7 +136,7 @@ namespace InventoryApp.Class
             {
                 try
                 {
-                    cmd.CommandText = "DELETE from `tagb_inventory`.`property` where invobjid=@invobjid";
+                    cmd.CommandText = "DELETE from `tagb_inventory`.`property` where objid=@invobjid";
                     cmd.CommandType = CommandType.Text;
                     cmd.Connection = connectdb;
 
@@ -145,6 +152,7 @@ namespace InventoryApp.Class
                 connectdb.Close();
             }
         }
+        
         #endregion
 
         #region CRUD function User
@@ -232,6 +240,75 @@ namespace InventoryApp.Class
                 connectdb.Close();
                 
             }
+        }
+        public void ShowCategory()
+        {
+            datafill.Clear();
+            MySqlDataReader rd;
+
+            string query = "Select * from category";
+            using (var cmd = new MySqlCommand())
+            {
+                connectdb.Open();
+                cmd.CommandText = query;
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = connectdb;
+
+                rd = cmd.ExecuteReader();
+                while(rd.Read())
+                {
+                    datafill.Add(rd[1].ToString());
+                    
+                }
+                connectdb.Close();
+            }
+
+        }
+        public void ShowExpenseCode()
+        {
+            datafillExpense.Clear();
+            MySqlDataReader rd;
+
+            string query = "Select * from expensecode";
+            using (var cmd = new MySqlCommand())
+            {
+                connectdb.Open();
+                cmd.CommandText = query;
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = connectdb;
+
+                rd = cmd.ExecuteReader();
+                while (rd.Read())
+                {
+                    datafillExpense.Add(rd[1].ToString());
+
+                }
+                connectdb.Close();
+            }
+
+        }
+        public void ShowSupplier()
+        {
+            datafillSUpplier.Clear();
+            MySqlDataReader rd;
+
+            string query = "Select * from supplier";
+            using (var cmd = new MySqlCommand())
+            {
+                connectdb.Open();
+                cmd.CommandText = query;
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = connectdb;
+
+                rd = cmd.ExecuteReader();
+                while (rd.Read())
+                {
+                    datafillSUpplier.Add(rd[1].ToString());
+
+                }
+                connectdb.Close();
+            }
+
         }
         #endregion
 
