@@ -64,7 +64,7 @@
             this.MenuPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.MenuPanel.Location = new System.Drawing.Point(0, 0);
             this.MenuPanel.Name = "MenuPanel";
-            this.MenuPanel.Size = new System.Drawing.Size(288, 1024);
+            this.MenuPanel.Size = new System.Drawing.Size(288, 1032);
             this.MenuPanel.TabIndex = 0;
             // 
             // pictureBox2
@@ -203,7 +203,7 @@
             this.pictureBox1.Image = global::InventoryApp.Properties.Resources.cropped_City_Logo_2;
             this.pictureBox1.Location = new System.Drawing.Point(0, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1012, 154);
+            this.pictureBox1.Size = new System.Drawing.Size(1269, 154);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -216,7 +216,7 @@
             this.ContentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ContentPanel.Location = new System.Drawing.Point(288, 0);
             this.ContentPanel.Name = "ContentPanel";
-            this.ContentPanel.Size = new System.Drawing.Size(1012, 1024);
+            this.ContentPanel.Size = new System.Drawing.Size(1269, 1032);
             this.ContentPanel.TabIndex = 1;
             // 
             // pnlTopMenu
@@ -224,9 +224,9 @@
             this.pnlTopMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(220)))), ((int)(((byte)(140)))));
             this.pnlTopMenu.Controls.Add(this.pictureBox1);
             this.pnlTopMenu.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlTopMenu.Location = new System.Drawing.Point(288, 864);
+            this.pnlTopMenu.Location = new System.Drawing.Point(288, 872);
             this.pnlTopMenu.Name = "pnlTopMenu";
-            this.pnlTopMenu.Size = new System.Drawing.Size(1012, 160);
+            this.pnlTopMenu.Size = new System.Drawing.Size(1269, 160);
             this.pnlTopMenu.TabIndex = 2;
             // 
             // MainPanel
@@ -234,7 +234,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1300, 1024);
+            this.ClientSize = new System.Drawing.Size(1557, 1032);
             this.Controls.Add(this.pnlTopMenu);
             this.Controls.Add(this.ContentPanel);
             this.Controls.Add(this.MenuPanel);

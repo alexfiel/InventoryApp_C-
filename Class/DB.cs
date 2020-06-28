@@ -30,7 +30,7 @@ namespace InventoryApp.Class
 
     }
     */
-    class CRUD :connection
+    class CRUD : connection
     {
         //properties
         public string objid { set; get; }
@@ -43,6 +43,7 @@ namespace InventoryApp.Class
         public List<string> datafill = new List<string>();
         public List<string> datafillExpense = new List<string>();
         public List<string> datafillSUpplier = new List<string>();
+        public List<string> datafillSearch = new List<string>();
         public string invobjid { set; get; }
         public string prodname { set; get; }
         public string description { set; get; }
@@ -58,6 +59,12 @@ namespace InventoryApp.Class
         public string location { set; get; }
         public string group_id { set; get; }
         public string supplier { set; get; }
+        public string ImageUrlLocation { set; get; }
+
+     
+        public string search_list { set; get; }
+        public string search_text { set; get; }
+
 
         //read properties
         public DataTable dt = new DataTable();
@@ -74,10 +81,10 @@ namespace InventoryApp.Class
                 try
                 {
                     propertyno = "Null";
-                    cmd.CommandText = "INSERT INTO `tagb_inventory`.`property` (`objid`, `name`, `description`, `serial`, `category`, `supplier`, `property_no`, `expensecode`, `date_received`) VALUES (@invobjid, @name, @description, @serial, @category, @supplier,@propertyno, @expensecode, @DateReceived)";
+                    cmd.CommandText = "INSERT INTO `tagb_inventory`.`property` (`objid`, `name`, `description`, `serial`, `category`, `supplier`, `property_no`, `expensecode`, `date_received`,`imageUrl`) VALUES (@invobjid, @name, @description, @serial, @category, @supplier,@propertyno, @expensecode, @DateReceived, @imageurl)";
                     cmd.CommandType = CommandType.Text;
                     cmd.Connection = connectdb;
-                                        
+
                     cmd.Parameters.Add("@invobjid", MySqlDbType.VarChar).Value = invobjid;
                     cmd.Parameters.Add("@name", MySqlDbType.VarChar).Value = prodname;
                     cmd.Parameters.Add("@description", MySqlDbType.VarChar).Value = description;
@@ -87,6 +94,7 @@ namespace InventoryApp.Class
                     cmd.Parameters.Add("@propertyno", MySqlDbType.VarChar).Value = propertyno;
                     cmd.Parameters.Add("@expensecode", MySqlDbType.VarChar).Value = expensecode;
                     cmd.Parameters.Add("@DateReceived", MySqlDbType.DateTime).Value = DateReceived;
+                    cmd.Parameters.Add("@imageurl", MySqlDbType.VarChar).Value = ImageUrlLocation;
 
                     cmd.ExecuteNonQuery();
                 }
@@ -102,11 +110,11 @@ namespace InventoryApp.Class
         public void UpdateInventory()
         {
             connectdb.Open();
-            using(MySqlCommand cmd = new MySqlCommand())
+            using (MySqlCommand cmd = new MySqlCommand())
             {
                 try
                 {
-                    cmd.CommandText = "Update `tagb_inventory`.`property` set name=@name, description=@description, serial=@serial, category=@category, supplier=@supplier, expensecode=@expensecode, date_received=@DateReceived where objid=@invobjid";
+                    cmd.CommandText = "Update `tagb_inventory`.`property` set name=@name, description=@description, serial=@serial, category=@category, supplier=@supplier, expensecode=@expensecode, date_received=@DateReceived, imageurl=@imageurl where objid=@invobjid";
                     cmd.CommandType = CommandType.Text;
                     cmd.Connection = connectdb;
 
@@ -118,6 +126,7 @@ namespace InventoryApp.Class
                     cmd.Parameters.Add("@supplier", MySqlDbType.VarChar).Value = supplier;
                     cmd.Parameters.Add("@expensecode", MySqlDbType.VarChar).Value = expensecode;
                     cmd.Parameters.Add("@DateReceived", MySqlDbType.DateTime).Value = DateReceived;
+                    cmd.Parameters.Add("@imageurl", MySqlDbType.VarChar).Value = ImageUrlLocation;
 
                     cmd.ExecuteNonQuery();
                 }
@@ -132,7 +141,7 @@ namespace InventoryApp.Class
         public void DeleteInventory()
         {
             connectdb.Open();
-            using(MySqlCommand cmd = new MySqlCommand())
+            using (MySqlCommand cmd = new MySqlCommand())
             {
                 try
                 {
@@ -152,7 +161,8 @@ namespace InventoryApp.Class
                 connectdb.Close();
             }
         }
-        
+
+
         #endregion
 
         #region CRUD function User
@@ -180,7 +190,7 @@ namespace InventoryApp.Class
                 {
                     MessageBox.Show(e.Message);
                 }
-                
+
                 connectdb.Close();
 
             }
@@ -210,7 +220,7 @@ namespace InventoryApp.Class
                 {
                     MessageBox.Show(e.Message);
                 }
-               
+
                 connectdb.Close();
 
             }
@@ -236,9 +246,9 @@ namespace InventoryApp.Class
                 {
                     MessageBox.Show(e.Message);
                 }
-                
+
                 connectdb.Close();
-                
+
             }
         }
         public void ShowCategory()
@@ -255,10 +265,10 @@ namespace InventoryApp.Class
                 cmd.Connection = connectdb;
 
                 rd = cmd.ExecuteReader();
-                while(rd.Read())
+                while (rd.Read())
                 {
                     datafill.Add(rd[1].ToString());
-                    
+
                 }
                 connectdb.Close();
             }
@@ -325,8 +335,44 @@ namespace InventoryApp.Class
         public void ReadDataInventory()
         {
             dt.Clear();
-            string query = "Select objid,name,description,serial,category,supplier,expensecode,date_received from  `tagb_inventory`.`property`";
+            string query = "Select objid,name,description,serial,category,supplier,expensecode,date_received, imageurl from  `tagb_inventory`.`property`";
             MySqlDataAdapter MDA = new MySqlDataAdapter(query, connectdb);
+            MDA.Fill(ds);
+            dt = ds.Tables[0];
+        }
+
+        public void LOAD_LISTBOX() //load in the searchListbox
+        {
+            datafill.Clear();
+            MySqlDataReader rd;
+            using (var cmd = new MySqlCommand())
+            {
+                connectdb.Open();
+                cmd.CommandText = "Select objid,name,description,serial,category,supplier,expensecode,date_received, imageurl from  `tagb_inventory`.`property` where name like '%" + search_list + "%'";
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = connectdb;
+
+                try 
+                {
+                    rd = cmd.ExecuteReader();
+                    while (rd.Read()) 
+                    {
+                        datafill.Add(rd[1].ToString());
+                    }
+                    connectdb.Close();
+                }
+                catch
+                {
+
+                }
+            }
+        }
+        
+        public void Search_Table()
+        {
+            string query_filter = "Select objid,name,description,serial,category,supplier,expensecode,date_received, imageurl from  `tagb_inventory`.`property` where name ='"+  search_list + "'";
+            dt.Clear();
+            MySqlDataAdapter MDA = new MySqlDataAdapter(query_filter, connectdb);
             MDA.Fill(ds);
             dt = ds.Tables[0];
         }

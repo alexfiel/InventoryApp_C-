@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.pbProdImage = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -47,13 +48,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cboCategory = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
+            this.lsbSearch = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbProdImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -61,6 +63,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.pbProdImage);
             this.groupBox1.Controls.Add(this.label9);
@@ -85,6 +88,23 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(206)))), ((int)(((byte)(137)))));
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.Black;
+            this.button2.Location = new System.Drawing.Point(308, 675);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(85, 33);
+            this.button2.TabIndex = 22;
+            this.button2.Text = "BROWSE";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(206)))), ((int)(((byte)(137)))));
@@ -97,12 +117,14 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(85, 33);
             this.button1.TabIndex = 21;
-            this.button1.Text = "BROWSE";
+            this.button1.Text = "...";
             this.button1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pbProdImage
             // 
+            this.pbProdImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbProdImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbProdImage.Location = new System.Drawing.Point(91, 674);
             this.pbProdImage.Name = "pbProdImage";
@@ -261,17 +283,19 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(463, 65);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(513, 642);
+            this.dataGridView1.Size = new System.Drawing.Size(773, 642);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // textBox4
+            // txtSearch
             // 
-            this.textBox4.Location = new System.Drawing.Point(532, 33);
-            this.textBox4.MaxLength = 250;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(338, 26);
-            this.textBox4.TabIndex = 15;
+            this.txtSearch.Location = new System.Drawing.Point(532, 33);
+            this.txtSearch.MaxLength = 250;
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(338, 26);
+            this.txtSearch.TabIndex = 15;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            this.txtSearch.MouseDown += new System.Windows.Forms.MouseEventHandler(this.txtSearch_MouseDown);
             // 
             // label8
             // 
@@ -298,6 +322,7 @@
             this.btnSearch.TabIndex = 20;
             this.btnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnDelete
             // 
@@ -363,18 +388,29 @@
             this.btnNew.UseVisualStyleBackColor = false;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
+            // lsbSearch
+            // 
+            this.lsbSearch.FormattingEnabled = true;
+            this.lsbSearch.ItemHeight = 20;
+            this.lsbSearch.Location = new System.Drawing.Point(535, 70);
+            this.lsbSearch.Name = "lsbSearch";
+            this.lsbSearch.Size = new System.Drawing.Size(334, 124);
+            this.lsbSearch.TabIndex = 21;
+            this.lsbSearch.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lsbSearch_MouseClick);
+            // 
             // NewInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(115)))), ((int)(((byte)(10)))));
-            this.ClientSize = new System.Drawing.Size(998, 835);
+            this.ClientSize = new System.Drawing.Size(1250, 836);
+            this.Controls.Add(this.lsbSearch);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnNew);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
@@ -415,7 +451,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cboCategory;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Button btnSave;
@@ -425,5 +461,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListBox lsbSearch;
+        private System.Windows.Forms.Button button2;
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,8 @@ namespace InventoryApp
     public partial class NewInventory : Form
     {
         CRUD crud = new CRUD();
-        private string InvObjid; 
+        private string InvObjid;
+        private string ImageUrlOrigin;
         public NewInventory()
         {
             InitializeComponent();
@@ -24,7 +26,9 @@ namespace InventoryApp
 
         private void NewInventory_Load(object sender, EventArgs e)
         {
-            ReadDataInventory();
+            lsbSearch.Visible = false;
+            // ReadDataInventory();
+            LoadSearchTables();
             crud.ShowCategory();
             crud.ShowExpenseCode();
             crud.ShowSupplier();
@@ -44,6 +48,7 @@ namespace InventoryApp
             crud.serial = txtSerial.Text;
             crud.supplier = cboSupplier.Text;
             crud.DateReceived = dtDateReceived.Value;
+           // crud.ImageUrlLocation = pbProdImage.ImageLocation;
             crud.CreateInventory();
 
             
@@ -58,6 +63,7 @@ namespace InventoryApp
             crud.serial = txtSerial.Text;
             crud.supplier = cboSupplier.Text;
             crud.DateReceived = dtDateReceived.Value;
+           // crud.ImageUrlLocation = pbProdImage.ImageLocation;
             crud.UpdateInventory();
         }
         public void DeleteInventory()
@@ -110,6 +116,12 @@ namespace InventoryApp
                 cboSupplier.Text= (dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString());
                 cboExpenseCode.Text = (dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString());
                 dtDateReceived.Text = (dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString());
+                string imageloc = (dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString());
+            
+                    
+               pbProdImage.BackgroundImage = new Bitmap(imageloc);
+               
+                
             }
         }
 
@@ -122,6 +134,7 @@ namespace InventoryApp
             cboExpenseCode.Text = "";
             cboExpenseCode.Text = "";
             cboSupplier.Text = "";
+            pbProdImage.BackgroundImage = null;
             dtDateReceived.Value = DateTime.Today;
 
         }
@@ -150,5 +163,114 @@ namespace InventoryApp
         {
 
         }
+        private void LoadSearchTables()
+        {
+            dataGridView1.DataSource = null;
+            crud.ReadDataInventory();
+            dataGridView1.DataSource = crud.dt;
+        }
+        private void ShowListbox()
+        {
+            lsbSearch.DataSource = null;
+            crud.search_list = txtSearch.Text;
+            crud.LOAD_LISTBOX();
+
+            lsbSearch.DataSource = crud.datafill;
+            lsbSearch.Visible = true;
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            if(txtSearch.Text == "")
+            {
+                lsbSearch.ClearSelected();
+
+            }
+            else
+            {
+                lsbSearch.ClearSelected();
+                ShowListbox();
+            }
+        }
+
+        private void txtSearch_MouseDown(object sender, MouseEventArgs e)
+        {
+            lsbSearch.DataSource = null;
+            lsbSearch.ClearSelected();
+            txtSearch.Text = "";
+        }
+
+        private void lsbSearch_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtSearch.Text = lsbSearch.SelectedItem.ToString();
+            lsbSearch.ClearSelected();
+            lsbSearch.Visible = false;
+            lsbSearch.DataSource = null;
+
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if(txtSearch.Text == "") 
+            {
+                ReadDataInventory();
+            }
+            else 
+            {
+                dataGridView1.DataSource = null;
+                crud.search_text = txtSearch.Text;
+                crud.Search_Table();
+                dataGridView1.DataSource = crud.dt;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.InitialDirectory = "C:\\";
+            open.Filter = "Image Files (*.jpg)|*.jpg|All Files(*.*)|*.*";
+            open.FilterIndex = 1;
+            
+            if(open.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                if(open.CheckFileExists)
+                {
+                    string paths = Application.StartupPath.Substring(0,(Application.StartupPath.Length - 10));
+                    string CorrectFilename = System.IO.Path.GetFileName(open.FileName);
+                    //System.IO.File.Copy(open.FileName, paths + "\\Images\\" + CorrectFilename);
+                    ImageUrlOrigin = open.FileName;
+                    System.IO.File.Copy(ImageUrlOrigin, paths + "\\Images\\" + CorrectFilename);
+                    MessageBox.Show(ImageUrlOrigin);
+                    //System.IO.File.Copy(open.FileName, )
+                }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.png; *.bmp)|*.jpg; *.jpeg; *.gif; *.png; *.bmp";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                // display to picturebox
+                //pbProdImage.BackgroundImage = new Bitmap(open.FileName);
+                string paths = Application.StartupPath.Substring(0, (Application.StartupPath.Length - 10));
+                string CorrectFilename = System.IO.Path.GetFileName(open.FileName);
+                string ImageUrlLocation = null;
+                //System.IO.File.Copy(open.FileName, paths + "\\Images\\" + CorrectFilename);
+                ImageUrlOrigin = open.FileName;
+                System.IO.File.Copy(ImageUrlOrigin, paths + "\\Images\\" + CorrectFilename,true);
+                pbProdImage.BackgroundImage = new Bitmap(paths +"\\Images\\" + CorrectFilename);
+                ImageUrlLocation = paths + "\\Images\\" + CorrectFilename;
+                crud.ImageUrlLocation = ImageUrlLocation;
+
+                MessageBox.Show(ImageUrlLocation);
+                //System.IO.File.Copy(open.FileName, 
+
+            }
+        }
+
+    
     }
 }
